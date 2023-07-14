@@ -1,15 +1,54 @@
-Source: template-repository
-Section: unknown
+Source: mtr
+Section: net
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Robert Woodcock <rcw@debian.org>
+Uploaders: Rhonda D'Vine <rhonda@debian.org>,
+           Samuel Henrique <samueloph@debian.org>
+Standards-Version: 4.6.0
+Homepage: https://www.bitwizard.nl/mtr/
+Build-Depends: automake,
+               debhelper-compat (= 13),
+               libgtk2.0-dev,
+               libncurses-dev,
+               libjansson-dev
+Vcs-Browser: https://salsa.debian.org/debian/mtr
+Vcs-Git: https://salsa.debian.org/debian/mtr.git
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: mtr
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Breaks: mtr-tiny,
+        suidmanager (<< 0.50)
+Replaces: mtr-tiny
+Description: Full screen ncurses and X11 traceroute tool
+ mtr combines the functionality of the 'traceroute' and 'ping' programs
+ in a single network diagnostic tool.
+ .
+ As mtr starts, it investigates the network connection between the host
+ mtr runs on and a user-specified destination host.  After it
+ determines the address of each network hop between the machines,
+ it sends a sequence of ICMP ECHO requests to each one to determine the
+ quality of the link to each machine.  As it does this, it prints
+ running statistics about each machine.
+
+Package: mtr-tiny
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Breaks: mtr,
+        suidmanager (<< 0.50)
+Replaces: mtr
+Description: Full screen ncurses traceroute tool
+ mtr combines the functionality of the 'traceroute' and 'ping' programs
+ in a single network diagnostic tool.
+ .
+ As mtr starts, it investigates the network connection between the host
+ mtr runs on and a user-specified destination host.  After it
+ determines the address of each network hop between the machines,
+ it sends a sequence of ICMP ECHO requests to each one to determine the
+ quality of the link to each machine.  As it does this, it prints
+ running statistics about each machine.
+ .
+ mtr-tiny is compiled without support for X and conserves disk space.
