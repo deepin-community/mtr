@@ -1,3 +1,16 @@
+mtr (0.96-1) unstable; urgency=medium
+
+  * New upstream version 0.96
+
+ -- Samuel Henrique <samueloph@debian.org>  Tue, 12 Aug 2025 20:39:18 +0100
+
+mtr (0.95-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload
+  * Build with GTK 3 (Closes: #967647)
+
+ -- Bastian Germann <bage@debian.org>  Fri, 29 Sep 2023 10:39:36 +0200
+
 mtr (0.95-1) unstable; urgency=medium
 
   * New upstream version 0.95
